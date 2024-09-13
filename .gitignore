@@ -1,3 +1,15 @@
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
+
+# Ignore .gitignore file itself
+.gitignore
+
+# Ignore book-store/.env and book-store/myenv directory
+book-store/.env
+book-store/myenv/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
