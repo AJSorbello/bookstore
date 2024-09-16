@@ -1,6 +1,5 @@
 from pathlib import Path
 from decouple import config
-from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,15 +11,12 @@ LOGIN_URL = '/login/'
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("BOOKSTORE_SECRET_KEY", default=get_random_secret_key())
+SECRET_KEY = config("BOOKSTORE_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com', '<your_ip_address>']
-
-# Add this line to your settings.py file
-LOGIN_REDIRECT_URL = '/books/'  # Adjust the URL as needed
+ALLOWED_HOSTS = ['yourdomain.com', 'www.yourdomain.com']
 
 # Application definition
 
@@ -36,6 +32,7 @@ INSTALLED_APPS = [
     "sales",
     "salespersons",
     "customers",
+    "django_extensions",  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -124,7 +121,9 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Security settings
-SECURE_HSTS_SECONDS = 3600  # 1 hour
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True  # Enable SSL redirect
+SESSION_COOKIE_SECURE = True  # Secure session cookies
+CSRF_COOKIE_SECURE = True  # Secure CSRF cookies
+SECURE_HSTS_SECONDS = 3600  # Enable HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
