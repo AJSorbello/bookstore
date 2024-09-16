@@ -9,14 +9,14 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
-                       
+                        Search for Sales Records
                     </div>
                     <div class="card-body">
                         <h1>Search for sales records</h1>
                         <hr>
                         <form action="" method="POST">
                             {% csrf_token %}
-                            {{ form }}
+                            {{ form.as_p }}
                             <button type="submit" class="btn btn-primary">Search</button>
                         </form>
                         <br>

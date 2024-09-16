@@ -11,3 +11,4 @@ CHART_CHOICES = (
 class SalesSearchForm(forms.Form): 
     book_title = forms.CharField(max_length=120)
     chart_type = forms.ChoiceField(choices=CHART_CHOICES)
+    show_all = forms.BooleanField(required=False, label='Show All')

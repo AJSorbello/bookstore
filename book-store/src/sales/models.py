@@ -1,13 +1,13 @@
-from django.db import models
 
 from books.models import Book
 
-# because we need to connect sales with books
+from django.db import models
+
 class Sale(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField()
-    price = models.FloatField()
-    date_created = models.DateTimeField(auto_now_add=True)  # Automatically set on creation
+    quantity = models.IntegerField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)  # Automatically set the field to now when the object is first created
 
     def __str__(self):
-        return f"id: {self.pk}, book: {self.book.name}, quantity: {self.quantity}"
+        return f"{self.book.name} - {self.quantity} - {self.price}"
