@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-import dj_database_url
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,12 +12,12 @@ LOGIN_URL = '/login/'
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-ml49cp(e)=yakpevh4xz)3w)6xuq6kv7g&3^xf^)gr-n3&p#%9')
+SECRET_KEY = config('BOOKSTORE_SECRET_KEY', default='django-insecure-ml49cp(e)=yakpevh4xz)3w)6xuq6kv7g&3^xf^)gr-n3&p#%9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'ajbooks-5dee885a9073.herokuapp.com']
 
 # Application definition
 
@@ -78,14 +77,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# Heroku: Update database configuration from $DATABASE_URL.
-if 'DATABASE_URL' in os.environ:
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-elif not DEBUG:
-    import warnings
-    warnings.warn("No DATABASE_URL environment variable set, and so no databases setup")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
