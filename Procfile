@@ -1,1 +1,1 @@
-web: gunicorn -c gunicorn_config.py bookstore.wsgi
+web: gunicorn --bind 0.0.0.0:$PORT bookstore.wsgi

@@ -1,4 +1,2 @@
-# gunicorn_config.py
-
-bind = "0.0.0.0:8000"
-workers = 3
+import os
+bind = f"0.0.0.0:{os.getenv('PORT', '8000')}"
