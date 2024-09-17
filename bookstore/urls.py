@@ -6,13 +6,11 @@ from .views import home, login_view, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),  # Root URL for homepage
-    path('sales/', include('sales.urls', namespace='sales')),
-    path('books/', include('books.urls', namespace='books')),
-    path('login/', login_view, name='login'),
-    path('logout/', logout_view, name='logout'),
-    # Assuming contact has its own URL configuration
-    path('contact/', include('contact.urls', namespace='contact')),
+    path('books/', include('books.urls')),
+    path('sales/', include('sales.urls')),
+    path('sales/contact/', include('sales.contact.urls')),  # Update this line
+    path('salespersons/', include('salespersons.urls')),
+    path('customers/', include('customers.urls')),
 ]
 
 if settings.DEBUG:
