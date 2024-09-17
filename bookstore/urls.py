@@ -2,12 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import home, login_view, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
     path('sales/', include('sales.urls')),
+    path('sales/contact/', include('sales.contact.urls')),  # Ensure this is correct
     # path('salespersons/', include('salespersons.urls')),  # Removed this line
     # path('customers/', include('customers.urls')),  # Remove if not in use
 ]
