@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'books',
     'sales',
     'sales.contact',  # Update this line
-    'salespersons',
-    'customers',
+    # 'salespersons',
+    # 'customers',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -9,8 +9,8 @@ urlpatterns = [
     path('books/', include('books.urls')),
     path('sales/', include('sales.urls')),
     path('sales/contact/', include('sales.contact.urls')),  # Update this line
-    path('salespersons/', include('salespersons.urls')),
-    path('customers/', include('customers.urls')),
+    # path('salespersons/', include('salespersons.urls')),
+    # path('customers/', include('customers.urls')),
 ]
 
 if settings.DEBUG:
