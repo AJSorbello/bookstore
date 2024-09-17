@@ -8,9 +8,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('books/', include('books.urls')),
     path('sales/', include('sales.urls')),
-    path('sales/contact/', include('sales.contact.urls')),  # Update this line
-    # path('salespersons/', include('salespersons.urls')),
-    # path('customers/', include('customers.urls')),
+    # path('salespersons/', include('salespersons.urls')),  # Remove this line
+    # path('customers/', include('customers.urls')),  # Remove if not in use
 ]
 
 if settings.DEBUG:
