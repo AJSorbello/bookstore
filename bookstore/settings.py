@@ -40,9 +40,10 @@ INSTALLED_APPS = [
     'books',
     'sales',
     'sales.contact',  # Update this line
-    # 'salespersons',
-    # 'customers',
+    # 'salespersons',  # Removed this line
+    # 'customers',  # Remove if not in use
 ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
