@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 
 # Database configuration
 # Switch between PostgreSQL (for Heroku) and SQLite (local development)
-
+# Default: local SQLite database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -71,10 +71,9 @@ DATABASES = {
     }
 }
 
-# If on Heroku, configure PostgreSQL
-if 'DATABASE_URL' in os.environ:
+# If on Heroku, use PostgreSQL
+if os.environ.get('DATABASE_URL'):
     DATABASES['default'] = dj_database_url.config(conn_max_age=500, ssl_require=True)
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
