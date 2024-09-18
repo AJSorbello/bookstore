@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     # bookstore-related apps
     'books',
     'sales',
-    'sales.contact',  # Ensure this is correct
+    
 ]
 
 MIDDLEWARE = [
