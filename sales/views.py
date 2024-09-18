@@ -73,4 +73,7 @@ def logout_view(request):
     return redirect("login")
 
 def contact(request):
+    if request.method == 'POST':
+        # Process the form data (if you have any logic to handle form submissions)
+        pass
     return render(request, 'sales/contact.html')
