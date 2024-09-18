@@ -1,4 +1,4 @@
-from django.urls import path, include
+from django.urls import path
 from .views import home, records, contact
 
 app_name = "sales"
@@ -6,5 +6,5 @@ app_name = "sales"
 urlpatterns = [
     path("", home, name="home"),
     path("records/", records, name="records"),
-    path('', include('sales.contact.urls')),
+    path("contact/", contact, name="contact"),
 ]
