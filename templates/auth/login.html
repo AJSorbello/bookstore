@@ -47,9 +47,21 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-bottom: 10px;
         }
         button:hover {
             background-color: #0056b3;
+        }
+        .demo-button {
+            background-color: #28a745;
+            margin-top: 15px;
+        }
+        .demo-button:hover {
+            background-color: #218838;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
@@ -69,9 +81,29 @@
             {% comment %} print form received from view {% endcomment %}
             {{ form }}
             
-            {% comment %} add button {% endcomment %}
-            <button type="submit">Login</button>
+            {% comment %} add buttons {% endcomment %}
+            <div class="button-container">
+                <button type="submit">Login</button>
+                <button type="button" class="demo-button" id="demoLoginBtn">Demo Login</button>
+            </div>
         </form>
     </div>
+
+    <script>
+        document.getElementById('demoLoginBtn').addEventListener('click', function() {
+            // Find the username and password inputs
+            const usernameInput = document.querySelector('input[type="text"]');
+            const passwordInput = document.querySelector('input[type="password"]');
+            
+            // Set the demo values
+            if (usernameInput) usernameInput.value = 'user';
+            if (passwordInput) passwordInput.value = 'password';
+            
+            // Optional: Submit the form automatically after a short delay
+            setTimeout(() => {
+                document.querySelector('form').submit();
+            }, 500);
+        });
+    </script>
 </body>
 </html>
